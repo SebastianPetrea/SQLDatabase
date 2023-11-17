@@ -4,9 +4,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Users {
-    private SimpleIntegerProperty id;
-    private SimpleStringProperty username;
-    private SimpleStringProperty email;
+    private final SimpleIntegerProperty id;
+    private final SimpleStringProperty username;
+    private final SimpleStringProperty email;
 
     public Users(int id, String username, String email) {
         this.id = new SimpleIntegerProperty(id);

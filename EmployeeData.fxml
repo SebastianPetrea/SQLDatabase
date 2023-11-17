@@ -8,20 +8,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.data.EmployeeDataController">
    <children>
-      <TableView fx:id="liste" layoutX="174.0" layoutY="-2.0" prefHeight="300.0" prefWidth="327.0">
+      <TableView fx:id="liste" layoutX="201.0" prefHeight="307.0" prefWidth="301.0">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="usernameColumn" prefWidth="133.0" text="Username" />
+          <TableColumn fx:id="idColumn" prefWidth="107.0" text="ID" />
+          <TableColumn fx:id="usernameColumn" prefWidth="101.0" text="Username" />
             <TableColumn fx:id="emailColumn" prefWidth="118.0" text="Email" />
         </columns>
       </TableView>
       <AnchorPane prefHeight="300.0" prefWidth="173.0" style="-fx-background-color: green;">
          <children>
-            <TextField fx:id="idField" layoutX="8.0" layoutY="1.0" promptText="ID" />
+            <TextField fx:id="idField" layoutX="13.0" layoutY="2.0" promptText="ID" />
             <TextField fx:id="usernameField" layoutX="12.0" layoutY="42.0" promptText="Username" />
             <TextField fx:id="emailField" layoutX="12.0" layoutY="87.0" promptText="Email" />
-            <Button layoutX="8.0" layoutY="246.0" mnemonicParsing="false" onAction="#addUsers" prefHeight="40.0" prefWidth="163.0" text="Add Users" />
-            <Button layoutX="64.0" layoutY="176.0" mnemonicParsing="false" onAction="#showList" text="Show" />
+            <Button layoutX="6.0" layoutY="157.0" mnemonicParsing="false" onAction="#addUsers" prefHeight="40.0" prefWidth="163.0" text="Add Users" />
+            <Button layoutX="114.0" layoutY="125.0" mnemonicParsing="false" onAction="#showList" text="Show" />
+            <AnchorPane layoutY="246.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: red;">
+               <children>
+                  <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#deleteRow" text="Delete" />
+                  <TextField fx:id="deleteField" layoutX="102.0" layoutY="8.0" prefHeight="25.0" prefWidth="93.0" promptText="Delete" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

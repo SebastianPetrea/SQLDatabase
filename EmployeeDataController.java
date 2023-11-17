@@ -1,7 +1,10 @@
 package employees.data;
 
+import java.sql.SQLException;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
@@ -16,9 +19,18 @@ public class EmployeeDataController {
     @FXML private TableView<Users> liste;
     @FXML private TableColumn<Users, Integer> idColumn;
     @FXML private TableColumn<Users, String> usernameColumn, emailColumn;
-    @FXML private TextField idField, usernameField, emailField;
-    
-    
+    @FXML private TextField idField, usernameField, emailField,deleteField;
+    private ObservableList<Users> userList = FXCollections.observableArrayList();
+    public void initialize() {
+        // Set the ObservableList as the data model for the TableView
+        liste.setItems(userList);
+
+        // Set up cell value factories for each column
+        idColumn.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        usernameColumn.setCellValueFactory(cellData -> cellData.getValue().usernameProperty());
+        emailColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+    }
+
 
     @FXML
     private void addUsers() {
@@ -70,6 +82,12 @@ public class EmployeeDataController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    private void deleteRow() throws SQLException{
+    	String input = deleteField.getText();
+    	mysqlConnect.deleteRow(input);
+    	
     }
 
     public void setStage(Stage stage) {

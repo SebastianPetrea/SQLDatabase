@@ -67,6 +67,24 @@ public class mysqlConnect {
 
         return userList;
     }
+    
+    public static void deleteRow(String id) throws SQLException {
+        String deleteSQL = "DELETE FROM userdata WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
+            preparedStatement.setString(1, id);
+
+            // Execute the update
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            // Check the result
+            if (rowsAffected > 0) {
+                System.out.println("Row deleted successfully.");
+            } else {
+                System.out.println("No rows were deleted. Check your condition.");
+            }
+        }
+    }
+
 
 
 
