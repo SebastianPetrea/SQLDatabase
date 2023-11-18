@@ -30,7 +30,6 @@ public class EmployeesDataMain extends Application {
             // Get the controller instance and set it as the controller for the FXML
             EmployeeDataController controller = loader.getController();
             controller.setStage(primaryStage);
-
             primaryStage.setScene(new Scene(root, 500, 300));
             primaryStage.show();
         } catch (IOException e) {

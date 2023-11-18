@@ -55,6 +55,10 @@ public class EmployeeDataController {
             idField.clear();
             usernameField.clear();
             emailField.clear();
+            showList();
+            idField.clear();
+            usernameField.clear();
+            emailField.clear();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,6 +91,8 @@ public class EmployeeDataController {
     private void deleteRow() throws SQLException{
     	String input = deleteField.getText();
     	mysqlConnect.deleteRow(input);
+    	showList();
+    	deleteField.clear();
     	
     }
 
