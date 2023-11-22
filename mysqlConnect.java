@@ -27,7 +27,6 @@ public class mysqlConnect {
     public static void addUsers(String id, String username, String email) throws SQLException {
         String insertQuery = "INSERT INTO userdata (id, username, email) VALUES (?, ?, ?)";
         int row;
-        //Add the id in the row colums !!!!!!!!!!!
         try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, username);

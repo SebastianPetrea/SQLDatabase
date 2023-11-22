@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -43,10 +42,6 @@ public class EmployeeDataController {
             }
             String username = usernameField.getText();
             String email = emailField.getText();
-
-            System.out.println("ID: " + id);
-            System.out.println("Username: " + username);
-            System.out.println("Email: " + email);
 
             // Add the new user
             Users newUser = new Users(Integer.parseInt(id), username, email);
@@ -89,13 +84,26 @@ public class EmployeeDataController {
     }
     @FXML
     private void deleteRow() throws SQLException{
-    	String input = deleteField.getText();
-    	mysqlConnect.deleteRow(input);
-    	showList();
-    	deleteField.clear();
+    	try {
+    		String input = deleteField.getText();
+    		if (input.contains(input)) {
+                showAlert("Invalid ID", "ID is not in the list");
+                return;
+            }
+    		
+    		mysqlConnect.deleteRow(input);
+    		showList();
+    		deleteField.clear();
+ 
+    	}catch (Exception e){
+    		e.printStackTrace();
+    	}
     	
     }
-
+    @FXML
+    private void updateList() {
+    	
+    }
     public void setStage(Stage stage) {
         this.stage = stage;
     }
